@@ -1,8 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import axios from './utils/axios'
-import 'ant-design-vue/dist/antd.css'
-import { Button, message } from 'ant-design-vue'
+import setupAntd from './utils/antd'
 
 const app = createApp(App)
 
@@ -10,7 +9,6 @@ const app = createApp(App)
 app.provide('axios', axios)
 
 /**antd */
-app.use(Button)
-app.provide('message', message)
+setupAntd(app)
 
 app.mount('#app')

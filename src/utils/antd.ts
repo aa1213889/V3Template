@@ -1,8 +1,14 @@
-// import { createApp } from 'vue'
-// import 'ant-design-vue/dist/antd.css'
-// import { Button, message } from 'ant-design-vue'
+import 'ant-design-vue/dist/antd.css'
+import { App } from 'vue'
+import { Button, message } from 'ant-design-vue'
 
-// const app = createApp()
+const components = [Button]
 
-// app.use(Button)
-// app.config.globalProperties.$message = message
+const setupAntd = (app: App): void => {
+  app.provide('message', message)
+  components.forEach((plugin: any) => {
+    app.use(plugin)
+  })
+}
+
+export default setupAntd
